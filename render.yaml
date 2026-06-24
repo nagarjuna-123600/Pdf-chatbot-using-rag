@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pdf-chatbot-using-rag
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0"
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_API_MODEL_NAME
+        sync: false
+      - key: HUGGINGFACE_EMBEDDINGS_MODEL_NAME
+        sync: false
